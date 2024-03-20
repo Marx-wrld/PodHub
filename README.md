@@ -1,3 +1,5 @@
+## Threads
+
 Building a @Threads replica with Next.js, Clerk, MongoDB and Tailwindcss
 
 #### Run
