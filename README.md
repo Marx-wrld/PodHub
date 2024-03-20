@@ -1,6 +1,6 @@
 Building a @Threads replica with Next.js, Clerk, MongoDB and Tailwindcss
 
-## Run
+#### Run
 
 First, run the development server:
 
