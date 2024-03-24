@@ -1,6 +1,9 @@
 ## Threads
 
-Building a @Threads replica with Next.js, Clerk, MongoDB, shadcn-ui and Tailwindcss
+Building a @Threads replica with Next.js, Clerk, MongoDB, Zod, shadcn-ui and Tailwindcss
+
+
+Zod - A typescript schema validation  with static types
 
 #### Run
 
