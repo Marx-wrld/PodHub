@@ -3,7 +3,7 @@ import { currentUser } from "@clerk/nextjs";
 
 async function Page(){
 
-    const user = await currentUser();
+    const user = await currentUser;
 
     const userInfo = {};
 

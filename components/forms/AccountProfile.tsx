@@ -13,7 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { userValidation } from '@/lib/validations/user';
+import { UserValidation } from '@/lib/validations/user';
 import { Button } from '@/components/ui/button';
 import * as z from "zod";
 import Image from 'next/image';
@@ -34,22 +34,20 @@ interface Props {
 const AccountProfile = ({ user, btnTitle } : Props) => {
 
     const form = useForm({
-        resolver: zodResolver(userValidation),
+        resolver: zodResolver(UserValidation),
         defaultValues: {
-            profile_photo: '',
-            id: '',
-            objectId: '',
-            username: '',
-            name: '',
-            bio: '',
+            profile_photo: user?.image || "",
+            username: user?.username || "",
+            name: user?.name || "",
+            bio: user?.bio || "",
         }
     });
 
-    const handleImage = (e: ChangeEvent, fieldChnage: (value: string) => void) => {
+    const handleImage = (e: ChangeEvent, fieldChange: (value: string) => void) => {
         e.preventDefault();
     }
 
-    function onSubmit(values: z.infer<typeof userValidation>) {
+    const onSubmit = async  (values: z.infer<typeof UserValidation>) => {
         console.log(values);
     }
 
@@ -100,11 +98,11 @@ const AccountProfile = ({ user, btnTitle } : Props) => {
                 control={form.control}
                 name="name"
                 render={({ field }) => (
-                    <FormItem className='flex items-center gap-3 w-full'>
+                    <FormItem className='flex flex-col gap-3 w-full'>
                         <FormLabel className='text-base-semiold text-light-2'>
                                Name
                             </FormLabel>
-                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                            <FormControl>
                                 <Input 
                                     type="text"
                                     className='account-form_input no-focus'
@@ -119,7 +117,7 @@ const AccountProfile = ({ user, btnTitle } : Props) => {
                 control={form.control}
                 name="username"
                 render={({ field }) => (
-                    <FormItem className='flex items-center gap-3 w-full'>
+                    <FormItem className='flex flex-col gap-3 w-full'>
                         <FormLabel className='text-base-semiold text-light-2'>
                                Username
                             </FormLabel>
@@ -138,7 +136,7 @@ const AccountProfile = ({ user, btnTitle } : Props) => {
                 control={form.control}
                 name="bio"
                 render={({ field }) => (
-                    <FormItem className='flex items-center gap-3 w-full'>
+                    <FormItem className='flex flex-col gap-3 w-full'>
                         <FormLabel className='text-base-semiold text-light-2'>
                                Bio
                             </FormLabel>
@@ -152,7 +150,7 @@ const AccountProfile = ({ user, btnTitle } : Props) => {
                     </FormItem>
                 )}
             />
-            <Button type="submit">Continue</Button>
+            <Button type="submit" className='bg-primary-500'>Continue</Button>
            </form>
         </Form>
     )
