@@ -2,8 +2,7 @@
 
 AI powered podcast service app
 
-#### App build
-
+#### To Run
 First, run the development server:
 
 ```bash
