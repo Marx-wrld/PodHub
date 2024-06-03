@@ -1,5 +1,6 @@
 ## PodHub
-- AI powered podcast service app
+
+AI powered podcast service app
 
 #### App build
 
