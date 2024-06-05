@@ -25,6 +25,7 @@ pnpm dev
 # or
 bun dev
 ```
-
-
+#### Using convex
+- npm install convex
+- npx convex dev
 
